@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport Service</title>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* NAVBAR */
+    nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: #111;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #00bcd4;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .book-btn {
+        background: #00bcd4;
+        color: white;
+    }
+
+    .account-btn {
+        background: #ff9800;
+        color: white;
+    }
+
+    section {
+        padding: 120px 40px;
+        min-height: 100vh;
+    }
+
+    #home {
+        background: #f5f5f5;
+    }
+
+    #fare {
+        background: #e3f2fd;
+    }
+
+    #schedule {
+        background: #fce4ec;
+    }
+
+    #help {
+        background: #ede7f6;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #333;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #333;
+        color: white;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#fare">Fare Matrix</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#help">Help</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <button class="btn book-btn" onclick="scrollToTop()">Book Now</button>
+        <button class="btn account-btn" onclick="createAccount()">Create Account</button>
+    </div>
+</nav>
+
+<!-- HOME SECTION -->
+<section id="home">
+    <h1>Welcome to Our Transport Service</h1>
+    <p>Book your ride safely and efficiently.</p>
+</section>
+
+<!-- FARE MATRIX SECTION -->
+<section id="fare">
+    <h1>Fare Matrix</h1>
+    <p>Fare details will be displayed here.</p>
+</section>
+
+<!-- SCHEDULE SECTION -->
+<section id="schedule">
+    <h1>Schedule</h1>
+
+    <table>
+        <tr>
+            <th>Route</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+        </tr>
+        <tr>
+            <td>City A → City B</td>
+            <td>6:00 AM</td>
+            <td>8:00 AM</td>
+        </tr>
+        <tr>
+            <td>City B → City C</td>
+            <td>9:30 AM</td>
+            <td>11:30 AM</td>
+        </tr>
+        <tr>
+            <td>City A → City C</td>
+            <td>1:00 PM</td>
+            <td>4:00 PM</td>
+        </tr>
+    </table>
+</section>
+
+
+<section id="help">
+    <h1>Help & Contacts</h1>
+    <ul>
+        <li>Email: support@transport.com</li>
+        <li>Phone: +63 912 345 6789</li>
+        <li>Office: Main Terminal, City Center</li>
+    </ul>
+</section>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function createAccount() {
+        alert("Redirecting you to the sign-up page.");
+        window.location.href = "signup.html";
+    }
+</script>
+
+</body>
+</html>
