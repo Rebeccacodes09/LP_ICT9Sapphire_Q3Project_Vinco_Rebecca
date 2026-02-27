@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport Service</title>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    
+    nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: #111;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #00bcd4;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .book-btn {
+        background: #00bcd4;
+        color: white;
+    }
+
+    .account-btn {
+        background: #ff9800;
+        color: white;
+    }
+
+    section {
+        padding: 120px 40px;
+        min-height: 100vh;
+    }
+
+    #home {
+        background: #f5f5f5;
+    }
+
+    #fare {
+        background: #e3f2fd;
+    }
+
+    #schedule {
+        background: #fce4ec;
+    }
+
+    #help {
+        background: #ede7f6;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #333;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #333;
+        color: white;
+    }
+    
+    .fare-box {
+
+        background: #d7dcfa;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .aligned-1 {
+        display: inline-block;
+        width: 49%;
+        vertical-align: top;
+    }
+        .aligned {
+        display: inline-block;
+        width: 47%;
+        vertical-align: top; 
+    }
+
+</style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#fare">Fare Matrix</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#help">Help</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <button class="btn book-btn" onclick="scrollToTop()">Book Now</button>
+        <button class="btn account-btn" onclick="createAccount()">Create Account</button>
+    </div>
+</nav>
+
+
+<section id="home">
+    <h1 style="text-align: center;">Welcome to Our Fare Matrix Service!</h1>
+    <p style="text-align: center;">Find out how much your ride is worth here.</p>
+</section>
+
+
+<section id="fare">
+    <h1>Fare Matrix Calculator</h1>
+
+    <div>
+    <div class="fare-box aligned-1">
+        <h2><label>Pick-up Station:</label></h2>
+        <br>
+        <select id="pickup" class="btn">
+            <option>Santolan</option>
+            <option>Katipunan</option>
+            <option>Anonas</option>
+            <option>Araneta Center-Cubao</option>
+            <option>Betty Go-Belmonte</option>
+            <option>Gilmore</option>
+            <option>J. Ruiz</option>
+            <option>V. Mapa</option>
+            <option>Pureza</option>
+            <option>Legarda</option>
+            <option>Recto</option>
+        </select>
+    </div>
+
+
+        <div class="fare-box aligned">
+           
+            <h2><label>Drop-off Station:</label></h2><br>
+            <select id="dropoff" class="btn">
+            <option>Santolan</option>
+            <option>Katipunan</option>
+            <option>Anonas</option>
+            <option>Araneta Center-Cubao</option>
+            <option>Betty Go-Belmonte</option>
+            <option>Gilmore</option>
+            <option>J. Ruiz</option>
+            <option>V. Mapa</option>
+            <option>Pureza</option>
+            <option>Legarda</option>
+            <option>Recto</option>
+            </select>
+        </div>
+    </div>
+<br>
+
+    <div class="fare-box">
+    
+        <h3><label>
+            <input type="checkbox" id="discount">
+            Apply 20% Discount (PWD/Senior/Student)
+        </label></h3>
+        <button onclick="calculateFare()">Calculate Fare</button>
+        <h2 id="result">Total Fare: ₱0.00</h2>
+
+    </div>
+
+
+</section>
+
+
+<section id="schedule">
+    <h1>Schedule</h1>
+
+    <table>
+        <tr>
+            <th>Route</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+        </tr>
+        <tr>
+            <td>Santolan → Katipunan</td>
+            <td>6:00 AM</td>
+            <td>7:00 AM</td>
+        </tr>
+        <tr>
+            <td>Katipunan → Anonas</td>
+            <td>8:30 AM</td>
+            <td>9:30 AM</td>
+        </tr>
+        <tr>
+            <td>Anonas → Araneta Center-Cubao</td>
+            <td>10:00 AM</td>
+            <td>11:00 M</td>
+        </tr>
+        <tr>
+            <td>Araneta Center-Cubao → Betty Go-Belmonte</td>
+            <td>12:00 PM</td>
+            <td>1:00 PM</td>
+        </tr>
+        <tr>
+            <td> Betty Go-Belmonte → Gilmore</td>
+            <td>2:00 PM</td>
+            <td>3:00 PM</td>
+        </tr>
+        <tr>
+            <td> Gilmore → J. Ruiz </td>
+            <td>4:00 PM</td>
+            <td>5:00 PM</td>
+        </tr>
+        <tr>
+            <td> J. Ruiz → V. Mapa </td>
+            <td>6:00 PM</td>
+            <td>7:00 PM</td>
+        </tr>
+        <tr>
+            <td> V. Mapa → Pureza </td>
+            <td>8:00 PM</td>
+            <td>9:00 PM</td>
+        </tr>
+        <tr>
+            <td> Pureza → Legarda </td>
+            <td>10:00 PM</td>
+            <td>11:00 PM</td>
+        </tr>
+        <tr>
+            <td> Legarda → Recto </td>
+            <td>12:00 AM</td>
+            <td>1:00 AM </td>
+        </tr>
+        
+    </table>
+</section>
+
+
+<section id="help">
+    <h1>Help & Contacts</h1>
+    <ul>
+        <li>Email: bgrfareguide@transport.com</li>
+        <li>Phone: +63 335 50   </li>
+        <li>Office: Main Terminal, City Center</li>
+    </ul>
+</section>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function createAccount() {
+        alert("Redirecting you to the sign-up page.");
+        window.location.href = "signup.html";
+    }
+
+function calculateFare() {
+    const baseFare = 50;
+    const perKMrate = 15;
+    const baseKM = 2;
+
+    const pickup = document.getElementById("pickup").value;
+    const dropoff = document.getElementById("dropoff").value;
+    const isDiscounted = document.getElementById("discount").checked;
+
+    
+    const stations = [
+        "Santolan",
+        "Katipunan",
+        "Anonas",
+        "Araneta Center-Cubao",
+        "Betty Go-Belmonte",
+        "Gilmore",
+        "J. Ruiz",
+        "V. Mapa",
+        "Pureza",
+        "Legarda",
+        "Recto"
+    ];
+
+    
+    const distancePerStation = 1;
+
+    let index1 = stations.indexOf(pickup);
+    let index2 = stations.indexOf(dropoff);
+
+    if (index1 === index2) {
+        alert("Pick-up and drop-off cannot be the same.");
+        return;
+    }
+
+    
+    let distance = Math.abs(index1 - index2) * distancePerStation;
+
+    let fare = baseFare;
+
+    if (distance > baseKM) {
+        let extraKM = distance - baseKM;
+        fare += extraKM * perKMrate;
+    }
+
+    
+    if (isDiscounted) {
+        fare *= 0.80;
+    }
+
+    document.getElementById("result").innerText =
+        "Distance: " + distance + " km | Total Fare: ₱" + fare.toFixed(2);
+}
+
+</script>
+
+</body>
+</html>
